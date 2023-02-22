@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+
+body {
+  font-family: Arial, sans-serif; /* Fuente para el texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  color: #000000; /* Color del texto */
+  /*background-image: url("./Captura\ de\ pantalla\ 2023-02-20\ 084810.jpg");*/
+  background: linear-gradient(to right, #9e709a, #8a3d5a);  border: 1px solid #ddd; /* Borde del div */
+  margin: 0; /* Eliminar márgenes */
+  padding: 0; /* Eliminar espacios internos */
+  display: flex; /* Mostrar elementos como una caja flexible */
+  align-items: center; /* Alinear elementos verticalmente */
+  justify-content: center; /* Alinear elementos horizontalmente */
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.caja{
+  overflow: hidden; /* Ocultar el contenido que se va a animar */
+  background: linear-gradient(to right, #c58da9, #3d8aad);  border: 1px solid #ddd; /* Borde del div */
+  color: #0e0d0d; /* Color del texto del div */
+  padding: 10px; /* Espacio entre el contenido y el borde del div */
+  text-align: center; /* Alineación del texto dentro del div */
+  text-decoration: none; /* Decoración del texto */
+  display: inline-block; /* Tipo de display */
+  font-size: 25px; /* Tamaño del texto */
+  margin: 10px; /* Espacio entre divs */
+  margin-top: 50px;
+  border-radius: 5px; /* Radio de las esquinas del div */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra del div */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.caja1{
+  /*position: absolute;*/
+  overflow: hidden; /* Ocultar el contenido que se va a animar */
+  background: linear-gradient(to right, #753655, #083347);  border: 1px solid #ddd; /* Borde del div */
+  color: #ddd; /* Color del texto del div */
+  padding: 5px; /* Espacio entre el contenido y el borde del div */
+  text-align: center; /* Alineación del texto dentro del div */
+  text-decoration: none; /* Decoración del texto */
+  display: block;
+  width: 260px;
+  font-size: 16px; /* Tamaño del texto */
+  margin: auto;
+  margin-top: 2px;
+  border-radius: 10px; /* Radio de las esquinas del div */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra del div */
+}
+
+
+.my-div {
+  display: flex; /* Mostrar elementos como una caja flexible */
+  align-items: center; /* Alinear elementos verticalmente */
+  justify-content: center; /* Alinear elementos horizontalmente */
+}
+
+button{
+  margin-top: 20px;
+  font-family: Arial, sans-serif; /* Fuente para el texto */
+  letter-spacing: 0.15em;
+  font-weight: bold; /* Cambia el grosor del texto */
+  text-transform: uppercase; /* Cambia la capitalización del texto */
+  width: 150px; /* Ancho fijo del botón */
+  height: 50px; /* Altura fija del botón */
+  background: linear-gradient(to right, #753655, #083347);  border: 1px solid #ddd; /* Borde del div */
+  border: 2px solid white; 
+  border-radius: 10px; /* Bordes redondeados */
+  color: #fff; /* Color del texto */
+  font-size: 18px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón */
+  transition: all 0.3s ease; /* Animación de transición para todos los cambios */
+}
+
+button:hover {
+  background-color: #0e6421; /* Cambiar el color de fondo cuando se pasa el cursor */
+  transform: scale(1.1); /* Agrandar el botón cuando se pasa el cursor */
+}
+
+h1{
+  overflow: hidden; /* Ocultar el texto que se va a animar */
+  border-right: 0.15em solid #000; /* Línea vertical que aparece cuando el texto se escribe */
+  white-space: nowrap; /* Evitar que el texto se envuelva */
+  letter-spacing: 0.15em; /* Espacio entre caracteres */
+  animation:
+    typing 3.5s steps(30, end),
+    blink-caret .75s step-end infinite; /* Agregar las animaciones de "typewriter" y de "blink" */
+}
+
+
+
+
+
+/*
+ p {
+  
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 3.5s steps(30, end),
+    blink-caret .75s step-end infinite;
+    
+}
+*/
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #000 }
+}
+
+@keyframes background {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.corazon {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  float: right;
 }
 
-.App-link {
-  color: #61dafb;
+.corazon:before,
+.corazon:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50px;
+  height: 80px;
+  background: red;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.corazon:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.corazon:hover:before,
+.corazon:hover:after {
+  animation: beat 0.5s infinite alternate;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1) rotate(+45deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: scale(1.1) rotate(+45deg);
   }
 }
